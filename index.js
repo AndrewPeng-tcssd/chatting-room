@@ -4,9 +4,12 @@ const cors = require('cors');
 const port = 3000;
 
 
+let usernames = []
+let passwords = {}
+
+
+
 let messages = [];
-
-
 let clients = [];
 
 const corsOptions = {
@@ -53,6 +56,19 @@ app.post('/messages', (req, res) => {
         res.status(400).json({ error: 'No message content' });
     }
 });
+
+
+app.post('/register', (req, res) => {
+    if (usernames.some(req.username)){
+        res.status(200).json({ message: "User already exists"})
+    }
+    else{
+        usernames.push(req.username)
+        passwords[req.username] = req.password
+        res.status(200).json({ message: "User Created"})
+    }
+})
+
 
 app.use(express.static('public'));
 
