@@ -10,9 +10,10 @@
 <body>
     <div id="register">
         <h2>Register</h2>
-        <input type="text" name="Username" placeholder="Username" aria-label="Text">
-        <input type="password" name="password" placeholder="Password" aria-label="Password">
-        <button id="submit-register">Register</button>
+        <input id="username"type="text" name="Username" placeholder="Username" aria-label="Text">
+        <input id="pass" type="password" name="password" placeholder="Password" aria-label="Password">
+        <button id="submit-register" onclick="register_user()">Register</button>
+        <small id="createdornot"></small>
         <a href="index.html" id="register-link">Login</a>
     </div>
     <script src="register.js"></script>

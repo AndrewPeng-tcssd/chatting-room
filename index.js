@@ -59,15 +59,17 @@ app.post('/messages', (req, res) => {
 
 
 app.post('/register', (req, res) => {
-    if (usernames.some(req.username)){
-        res.status(200).json({ message: "User already exists"})
+    const { username, password } = req.body;
+    
+    if (usernames.includes(username)) {
+        res.status(409).json({ message: "User already exists" });
+    } else {
+        usernames.push(username);
+        passwords[username] = password;
+        res.status(201).json({ message: "User Created" });
     }
-    else{
-        usernames.push(req.username)
-        passwords[req.username] = req.password
-        res.status(200).json({ message: "User Created"})
-    }
-})
+});
+
 
 
 app.use(express.static('public'));
