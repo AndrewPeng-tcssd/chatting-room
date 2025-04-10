@@ -9,10 +9,10 @@
 </head>
 <body>
     <main class="container">
-        <textarea id="messages" name="read-only" readonly>Read-only</textarea>
+        <textarea id="messages" name="read-only" readonly>Messages</textarea>
         <fieldset role="group">
-            <input id="messagtype="text" name="text" placeholder="Text" aria-label="Text">
-            <button id="submit">Submit</button>
+            <input id="message" type="text" name="text" placeholder="Text" aria-label="Text">
+            <button id="submit" onclick="post_message()">Submit</button>
         </fieldset>
     </main>
     <script src="chat.js"></script>

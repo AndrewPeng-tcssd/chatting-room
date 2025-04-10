@@ -10,13 +10,10 @@
 <body>
     <div id="login">
         <h2>Login</h2>
-        <input type="text" name="Username" placeholder="Username" aria-label="Text">
-        <input type="password" name="password" placeholder="Password" aria-label="Password">
-        <button id="submit-login">Login</button>
-        <label>
-            <input type="checkbox" id="remember-me">
-            Remember Me
-        </label>
+        <input id="username" type="text" name="Username" placeholder="Username" aria-label="Text">
+        <input id="pass" type="password" name="password" placeholder="Password" aria-label="Password">
+        <button id="submit-login" onclick="login_user()">Login</button>
+        <small id="yesorno"></small>
         <a href="register.html" id="register-link">Register</a>
     </div>
     <script src="login.js"></script>

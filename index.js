@@ -3,10 +3,8 @@ const app = express();
 const cors = require('cors');
 const port = 3000;
 
-
 let usernames = []
 let passwords = {}
-
 
 
 let messages = [];
@@ -69,6 +67,18 @@ app.post('/register', (req, res) => {
         res.status(201).json({ message: "User Created" });
     }
 });
+app.post('/login', (req, res) => {
+    let { username, password } = req.body
+    if(!usernames.includes(username)){
+        res.status(409).json({ message: "User doesn't exist" });
+    }
+    else if(password != passwords[username]){
+        res.status(409).json({ message: "Password is incorrect" });
+    }
+    else {
+        res.status(201).json({ message: "Login successfully"})
+    }
+})
 
 
 
